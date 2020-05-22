@@ -7,14 +7,34 @@
 //
 
 import UIKit
+import SpriteKit
 
 class ViewController: UIViewController {
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view.
+  private var skView: SKView!
+  
+  override var shouldAutorotate: Bool {
+    return false
   }
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    initializeSkView()
+  }
+  
+  private func initializeSkView() {
+    skView = SKView(frame: view.bounds)
+    view.addSubview(skView)
+    let scene = TetrisScene()
+    skView.presentScene(scene)
+    scene.scaleMode = .resizeFill
+    scene.backgroundColor = .white
+  }
+  
 
+  
+
+
+  
 }
 
